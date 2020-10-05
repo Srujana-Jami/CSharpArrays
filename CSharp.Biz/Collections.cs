@@ -60,23 +60,7 @@ namespace CSharp.Biz
                 }
             }
         }
-        public Result<decimal> CalculateSuggestedPrice(decimal markupPercent)
-        {
-            var message = "";
-            if (markupPercent <= 0m)
-            {
-                message = "Invalid markup percentage";
-            }
-            else if (markupPercent < 10)
-            {
-                message = "Below recommended markup percentage";
-            }
-            var value = this.Cost + (this.Cost * markupPercent / 100);
-
-            var operationalResult = new Result<decimal>(value, message);
-
-            return operationalResult;
-        }
+        
         public string ValidationMessage { get; private set; }
 
         public override string ToString()
